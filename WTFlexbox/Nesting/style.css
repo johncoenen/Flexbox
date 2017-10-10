@@ -1,0 +1,99 @@
+/* Some CSS Setup - nothing to do with flexbox */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-image: -webkit-linear-gradient(190deg, #2376ae 0%, #c16ecf 100%);
+  background-image: -o-linear-gradient(190deg, #2376ae 0%, #c16ecf 100%);
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding:50px;
+}
+
+img {
+  max-width:100%;
+}
+
+a {
+  color:white;
+  text-decoration: none;
+  font-size: 15px;
+  background:rgba(0,0,0,0.2);
+  padding:20px 5px;
+}
+a:hover {
+  background:rgba(0,0,0,0.4);
+}
+
+/* Easy starter template when items need to stretch and be vertically centered */
+/* the flex container, will also use as nested container */
+.slider-nav ul {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;  /* this is flex item -ish */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; 
+  
+  /* this is what is needed, but that doesn't work, so we try something else
+  align-items: center;
+  align-items: stretch; */
+}
+
+/* the first flex item */
+/* li items become the children of ul */
+.slider-nav li {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    /* border:1px solid red;  quick and easy way to see item boxes */
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; /* this is flex container -ish */
+}
+
+.slider-nav .arrow {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;    
+}
+
+.arrow a {
+    font-size: 30px;
+}
+
+.slider-nav a {
+   /* We want to stretch as well as center */ 
+   -ms-flex-preferred-size: 100%; 
+       flex-basis: 100%;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center; /* This takes the child element and centers it as well */   
+}
+
+/* This is the flex item  */
+.slider-nav span {
+    /* span(s) are by default display-inline, so we change that to block */
+    display: block;
+    width: 100%;
+}
